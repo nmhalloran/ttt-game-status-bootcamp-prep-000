@@ -81,4 +81,6 @@ def won?(board)
    end
  end
 
- puts won?(board)
+ if won?(board)
+   puts "Yay!"
+ end
