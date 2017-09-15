@@ -3,8 +3,6 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
-board = ["X", " ", "X", " ", " ", " ", " ", " ", " "]
-
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
   [0, 1, 2],
@@ -24,7 +22,6 @@ def won?(board)
    counter = 0
    index_count = -1
    winning_index = -1
-   winning_array = []
    WIN_COMBINATIONS.each do |win_combination|
 
      while counter < 3 && winner !="XXX" do
@@ -36,7 +33,6 @@ def won?(board)
      index_count += 1
      if winner === "XXX" || winner === "OOO"
        winning_index = index_count
-       winning_array.push(winner)
      end
      winner = ""
      counter = 0
@@ -57,7 +53,6 @@ def won?(board)
  def draw?(board)
    WIN_COMBINATIONS.each do |win_combination|
      if won?(board) === win_combination
-       puts "SOMEBODY WON YOU FOOL!"
        return false
      end
    end
@@ -83,3 +78,5 @@ def won?(board)
      return "O"
    end
  end
+
+ puts won?(board)
